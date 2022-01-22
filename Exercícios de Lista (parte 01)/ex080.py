@@ -2,13 +2,21 @@
 # ta de inserção (sem usar o sort()). No final, mostre a lista ordenada na tela.
 
 lista = []
-maior_num = 0
 
 for v in range(0, 5):
-    num = int(input('Digite um valor: '))
-    if v == 0:
-        maior_num = num
-        lista.append(num)
+    n = int(input('Digite um valor: '))
+    if v == 0 or n > lista[-1]:
+        lista.append(n)
+    else:
+        pos = 0
+        while pos < len(lista):
+            if n < lista[pos]:
+                lista.insert(pos, n)
+                break
+            pos += 1
+
+print(f'Valores digitados: {lista}')
+
 
 
 
