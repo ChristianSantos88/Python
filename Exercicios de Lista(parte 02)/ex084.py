@@ -4,90 +4,57 @@
 # B) Uma listagem com as pessoas mais pesadas;
 # C) Uma listagem com as pessoas mais leves.
 
-'''
-temp = list()  # Lista temporária
-cadastro = list()
+pessoas = []
 pesados = []
 leves = []
-c = 0
+mais_pesado = 0
+mais_leve = 0
+cadastrados = 0
 
 while True:
-    temp.append(input('Nome da pessoa: '))
-    temp.append(int(input('Peso da pessoa: ')))
-    cadastro.append(temp.copy())
-    c += 1
-    temp.clear()
+    nome = input('Nome: ')
+    peso = float(input(f'Peso de {nome}: '))
+    pessoas.append(nome)
+    pessoas.append(peso)
 
-    resp = input('Gostaria de continuar cadastrando pessoas? [s/n] ')
-    if resp in 'Nn':
-        break
+    if cadastrados == 0:
+        mais_pesado = peso
+        mais_leve = peso
+    elif peso > mais_pesado:
+        mais_pesado = peso
+    elif peso < mais_leve:
+        mais_leve = peso
 
-for p in cadastro:
-    if p[1] >= 90:
-        pesados.append(p)
-    elif p[1] <= 75:
-        leves.append(p)
-
-print(f'Total de pessoas cadastradas: {c}')
-print(f'Lista completa: {cadastro}')
-print(f'Lista dos mais pesados: {pesados}')
-print(f'Lista dos mais leves: {leves} ')
-'''
-
-'''
-pessoas = [[], []]
-c = 0
-
-while True:
-    nome = input('Digite um nome: ')
-    peso = float(input(f'Digite o peso de {nome}: '))
     if peso >= 100:
-        pessoas[0].append(nome)
-        pessoas[0].append(peso)
-    elif peso <= 75:
-        pessoas[1].append(nome)
-        pessoas[1].append(peso)
-    c += 1
-    resp = input('Gostaria de continuar cadastrando pessoas? ')
-    if resp in 'Nn':
+        pesados.append(pessoas[:])
+
+    elif peso <= 70:
+        leves.append(pessoas[:])
+
+    cadastrados += 1
+
+    pessoas.clear()
+
+    perg = input('Continuar? ')
+    if perg == 'n':
         break
 
-print(f'Total de pessoas cadastradas: {c}')
 
-print('Pessoas mais pesadas: ', end='')
-print(*pessoas[0], sep=', ')
-print(f'Pessoas mais leves: ', end='')
-print(*pessoas[1], sep=', ')
-'''
+print(f'Total de pessoas cadastradas: {cadastrados}')
 
-temp = []
-princ = list()
-c = 0
+print(f'O maior peso foi de {mais_pesado}. Peso de: ', end='')
+for p in range(0, len(pesados)):
+    if pesados[p][1] == mais_pesado:
+        print(f'{pesados[p][0]}...', end=' ')
 
-while True:
-    temp.append(input('Digite um nome: '))
-    temp.append(float(input('Digite um peso: ')))
-    princ.append(temp.copy())
-    temp.clear()
-    c += 1
+print(f'\nO menor peso foi de {mais_leve}. Peso de: ', end='')
+for p in range(0, len(leves)):
+    if leves[p][1] == mais_leve:
+        print(f'{leves[p][0]}...', end=' ')
 
-    resp = input('Quer continuar? ')
-    if resp in 'Nn':
-        break
 
-print(f'Total de pessoas cadastradas: {c}')
 
-print('As pessoas mais pesadas da lista são: ', end='')
-for p in princ:
-    if p[1] >= 100:
-        print(p, end=', ')
 
-print()
-
-print('As pessoas mais leves da lista são: ', end='')
-for p in princ:
-    if p[1] <= 75:
-        print(p, end=', ')
 
 
 
