@@ -18,7 +18,6 @@ print(f'Valores pares digitados: {numeros[0]}')
 print(f'Valores ímpares digitados: {numeros[1]}')
 '''
 
-''''''
 par_impar = [[], []]
 
 for v in range(0, 7):

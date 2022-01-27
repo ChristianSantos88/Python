@@ -45,12 +45,12 @@ print(f'Total de pessoas cadastradas: {cadastrados}')
 print(f'O maior peso foi de {mais_pesado}. Peso de: ', end='')
 for p in range(0, len(pesados)):
     if pesados[p][1] == mais_pesado:
-        print(f'{pesados[p][0]}...', end=' ')
+        print(f'[{pesados[p][0]}]', end=' ')
 
 print(f'\nO menor peso foi de {mais_leve}. Peso de: ', end='')
 for p in range(0, len(leves)):
     if leves[p][1] == mais_leve:
-        print(f'{leves[p][0]}...', end=' ')
+        print(f'[{leves[p][0]}]', end=' ')
 
 
 
