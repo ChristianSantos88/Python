@@ -3,5 +3,9 @@
 
 from random import sample, randint
 
+pergunta = int(input('Quantas apostas gostaria de gerar? '))
+apostas = [sample(range(1, 61), k=6) for c in range(0, pergunta)]
 
+for a in range(0, pergunta):
+    print(f'Aposta {a + 1}: {sorted(apostas)[a]}')
 
