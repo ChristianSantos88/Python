@@ -31,8 +31,8 @@ while True:
     perg = int(input('Gostaria de ver as notas de qual aluno? [999 finaliza o sistema] '))
     if perg == 999:
         break
-    elif perg > len(lista) + 1:
-        print('Cadastro não encontrado. Tente novamente.')
+    elif perg >= len(lista) + 1:
+        print('Cadastro não encontrado. Tente novamente.\n')
     else:
         print(f'Notas de {lista[perg - 1][0]}: {lista[perg - 1][1:3]}\n')
 
